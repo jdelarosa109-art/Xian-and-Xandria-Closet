@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+
+  --color-primary: #F8F1E9; /* Soft Cream */
+  --color-secondary: #D4A574; /* Warm Gold */
+  --color-accent: #8B7355; /* Earthy Brown */
+  --color-success: #A8D5BA; /* Soft Mint */
+  --color-error: #E76F51; /* Coral */
+  
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+
+  --color-ink: #1a1a1a;
+  --color-paper: #F8F1E9;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-paper);
+    --foreground: var(--color-ink);
+    --border: var(--color-secondary);
+  }
+  
+  html, body {
+    @apply antialiased scroll-smooth;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom Utilities based on Recipe 12 / 6 */
+@layer utilities {
+  .serif {
+    font-family: var(--font-serif);
+  }
+  
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+  }
+}
